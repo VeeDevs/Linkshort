@@ -1,5 +1,3 @@
-Here’s the complete README for your Flask URL Shortener project, including all relevant sections and your email:
-
 ```markdown
 # Flask URL Shortener
 

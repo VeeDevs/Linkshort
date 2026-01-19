@@ -2,9 +2,10 @@ from flask import Flask, request, redirect, render_template, url_for, flash
 import sqlite3
 import string
 import random
+import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = os.urandom(24)
 
 # Database setup
 def init_db():
@@ -36,7 +37,7 @@ def get_long_url(short_code):
     return result[0] if result else None
 
 def generate_short_code():
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=6))
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=10))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
